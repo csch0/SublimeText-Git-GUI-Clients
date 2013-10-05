@@ -1,0 +1,10 @@
+[
+	{ 
+		"caption": "Git GUI Clients: GitX", 
+		"command": "ggc_open", "args": {"cmd": "gitx"}
+	},
+	{ 
+		"caption": "Git GUI Clients: Gitk", 
+		"command": "ggc_open", "args": {"cmd": "gitk"}
+	}
+]
