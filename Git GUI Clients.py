@@ -8,8 +8,11 @@ import subprocess
 class GgcOpenCommand(sublime_plugin.WindowCommand):
 
     def get_git_repository(self):
+        # Get the folder of the current view
+        dirs = [os.path.dirname(self.window.active_view().file_name())] if self.window.active_view() and self.window.active_view().file_name() else []
+
         # Get get windows folders
-        dirs = [f for f in self.window.folders()]
+        dirs += [f for f in self.window.folders()]
 
         # Detect folders of open views
         dirs += [os.path.dirname(view.file_name()) for view in self.window.views() if view and view.file_name()]
