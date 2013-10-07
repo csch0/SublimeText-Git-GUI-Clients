@@ -30,4 +30,5 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         repository = self.get_git_repository()
         excecutable = s.get(cmd)
         if repository and excecutable:
-            p = subprocess.Popen([excecutable, repository], shell=True)
+            print("Git GUI Clients:", excecutable, repository)
+            p = subprocess.Popen(excecutable, cwd=repository, shell=True)
