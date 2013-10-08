@@ -1,4 +1,14 @@
 {
-	"gitk": "/usr/local/git/bin/gitk",
-	"gitx": "/usr/bin/gitx"
+  "gitk": [
+    "/usr/local/git/bin/gitk",
+    "C:\\Program Files\\Git\\cmd\\gitk.cmd",
+    "C:\\Program Files (x86)\\Git\\cmd\\gitk.cmd"
+  ],
+  "gitx": [
+    "/usr/bin/gitx"
+  ],
+  "gitextensions": [
+    "C:\\Program Files\\GitExtensions\\GitExtensions.exe",
+    "C:\\Program Files (x86)\\GitExtensions\\GitExtensions.exe"
+  ]
 }

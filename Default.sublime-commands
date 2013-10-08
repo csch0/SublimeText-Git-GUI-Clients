@@ -6,5 +6,9 @@
 	{ 
 		"caption": "Git GUI Clients: Gitk", 
 		"command": "ggc_open", "args": {"cmd": "gitk"}
+	},
+	{ 
+		"caption": "Git GUI Clients: Git Extensions", 
+		"command": "ggc_open", "args": {"cmd": "gitextensions"}
 	}
 ]
