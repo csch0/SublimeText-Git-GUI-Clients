@@ -5,7 +5,8 @@
     "C:\\Program Files (x86)\\Git\\cmd\\gitk.cmd"
   ],
   "gitx": [
-    "/usr/bin/gitx"
+    "/usr/bin/gitx",
+    "/usr/local/bin/gitx"
   ],
   "gitextensions": [
     "C:\\Program Files\\GitExtensions\\GitExtensions.exe",
