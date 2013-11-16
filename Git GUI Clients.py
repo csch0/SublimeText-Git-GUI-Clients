@@ -36,7 +36,7 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
                 return dir_path
 
 
-    def get_excecutable(self, cmd):        
+    def get_excecutable(self, cmd):
         s = sublime.load_settings("Git GUI Clients.sublime-settings")
         for excecutable in s.get(cmd):
             if os.path.exists(excecutable):
