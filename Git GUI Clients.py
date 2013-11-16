@@ -17,9 +17,24 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
 
         # Check for git folder
         for dir_path in list(set(dirs)):
-            git_dir = os.path.join(dir_path, '.git')
-            if os.path.exists(git_dir):
-                return git_dir
+            directory = dir_path
+            in_git_repo = False
+
+            while directory:
+                if os.path.exists(os.path.join(directory, '.git')):
+                    in_git_repo = True
+                    break
+
+                parent = os.path.realpath(os.path.join(directory, os.path.pardir))
+                if parent == directory:
+                    # /.. == /
+                    break
+
+                directory = parent
+
+            if in_git_repo:
+                return dir_path
+
 
     def get_excecutable(self, cmd):        
         s = sublime.load_settings("Git GUI Clients.sublime-settings")
