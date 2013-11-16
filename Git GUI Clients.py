@@ -52,6 +52,14 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Get repository location and git gui client
         excecutable = self.get_excecutable(cmd)
         repository = self.get_git_repository()
-        if repository and excecutable:
-            print("Git GUI Clients:", excecutable, repository)
-            p = subprocess.Popen(excecutable, cwd=repository, shell=True)
+
+        if not excecutable:
+            print("Git GUI Clients: No GUI executable exists on the computer. Check path configs.")
+            return
+
+        if not repository:
+            print("Git GUI Clients: File/project is not in a Git repo.")
+            return
+
+        print("Git GUI Clients:", excecutable, repository)
+        p = subprocess.Popen(excecutable, cwd=repository, shell=True)
