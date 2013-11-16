@@ -15,9 +15,6 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Get get windows folders
         dirs += [f for f in self.window.folders()]
 
-        # Detect folders of open views
-        dirs += [os.path.dirname(view.file_name()) for view in self.window.views() if view and view.file_name()]
-
         # Check for git folder
         for dir_path in list(set(dirs)):
             git_dir = os.path.join(dir_path, '.git')
