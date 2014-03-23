@@ -15,16 +15,28 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Get get windows folders
         dirs += [f for f in self.window.folders()]
 
-        # Detect folders of open views
-        dirs += [os.path.dirname(view.file_name()) for view in self.window.views() if view and view.file_name()]
-
         # Check for git folder
         for dir_path in list(set(dirs)):
-            git_dir = os.path.join(dir_path, '.git')
-            if os.path.exists(git_dir):
-                return git_dir
+            directory = dir_path
+            in_git_repo = False
 
-    def get_excecutable(self, cmd):        
+            while directory:
+                if os.path.exists(os.path.join(directory, '.git')):
+                    in_git_repo = True
+                    break
+
+                parent = os.path.realpath(os.path.join(directory, os.path.pardir))
+                if parent == directory:
+                    # /.. == /
+                    break
+
+                directory = parent
+
+            if in_git_repo:
+                return dir_path
+
+
+    def get_excecutable(self, cmd):
         s = sublime.load_settings("Git GUI Clients.sublime-settings")
         for excecutable in s.get(cmd):
             if os.path.exists(excecutable):
@@ -40,6 +52,14 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Get repository location and git gui client
         excecutable = self.get_excecutable(cmd)
         repository = self.get_git_repository()
-        if repository and excecutable:
-            print("Git GUI Clients:", excecutable, repository)
-            p = subprocess.Popen(excecutable, cwd=repository, shell=True)
+
+        if not excecutable:
+            print("Git GUI Clients: No GUI executable exists on the computer. Check path configs.")
+            return
+
+        if not repository:
+            print("Git GUI Clients: File/project is not in a Git repo.")
+            return
+
+        print("Git GUI Clients:", excecutable, repository)
+        p = subprocess.Popen(excecutable, cwd=repository, shell=True)
