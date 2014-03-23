@@ -31,9 +31,9 @@ Save files to the `Packages/Git GUI Clients` directory, then relaunch Sublime:
 
 Support this project via [gittip][] or [paypal][].
 
-[![Support via Gittip](https://rawgithub.com/chris---/Donation-Badges/master/gittip.jpeg)][gittip] [![Support via PayPal](https://rawgithub.com/chris---/Donation-Badges/master/paypal.jpeg)][paypal]
+[![Support via Gittip](https://rawgithub.com/csch0/Donation-Badges/master/gittip.jpeg)][gittip] [![Support via PayPal](https://rawgithub.com/csch0/Donation-Badges/master/paypal.jpeg)][paypal]
 
-[gittip]: https://www.gittip.com/Chris---
+[gittip]: https://www.gittip.com/csch0
 [paypal]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZWZCJPFSZNXEW
 
 ## License
