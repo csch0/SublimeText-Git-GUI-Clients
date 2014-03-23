@@ -15,26 +15,21 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Get get windows folders
         dirs += [f for f in self.window.folders()]
 
+        # Detect folders of open views
+        dirs += [os.path.dirname(view.file_name()) for view in self.window.views() if view and view.file_name()]
+
         # Check for git folder
         for dir_path in list(set(dirs)):
-            directory = dir_path
-            in_git_repo = False
 
-            while directory:
-                if os.path.exists(os.path.join(directory, '.git')):
-                    in_git_repo = True
+            # search for git folder
+            while dir_path:
+                if os.path.exists(os.path.join(dir_path, '.git')):
+                    return dir_path
+
+                parent = os.path.realpath(os.path.join(dir_path, os.path.pardir))
+                if parent == dir_path:
                     break
-
-                parent = os.path.realpath(os.path.join(directory, os.path.pardir))
-                if parent == directory:
-                    # /.. == /
-                    break
-
-                directory = parent
-
-            if in_git_repo:
-                return dir_path
-
+                dir_path = parent
 
     def get_excecutable(self, cmd):
         s = sublime.load_settings("Git GUI Clients.sublime-settings")
@@ -46,7 +41,7 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         return shutil.which(os.path.basename(s.get(cmd)[0])) if s.get(cmd) else None
 
     def is_enabled(self, cmd):
-        return self.get_excecutable(cmd) != None
+        return True if self.get_excecutable(cmd) else False
 
     def run(self, cmd):
         # Get repository location and git gui client
@@ -62,4 +57,4 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
             return
 
         print("Git GUI Clients:", excecutable, repository)
-        p = subprocess.Popen(excecutable, cwd=repository, shell=True)
+        subprocess.Popen(excecutable, cwd=repository, shell=True)
