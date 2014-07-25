@@ -10,5 +10,9 @@
 	{ 
 		"caption": "Git GUI Clients: Git Extensions", 
 		"command": "ggc_open", "args": {"cmd": "gitextensions"}
+	},
+	{ 
+		"caption": "Git GUI Clients: SourceTree", 
+		"command": "ggc_open", "args": {"cmd": "sourcetree"}
 	}
 ]
