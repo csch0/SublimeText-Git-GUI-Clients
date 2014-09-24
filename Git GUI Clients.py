@@ -18,8 +18,15 @@ class GgcOpenCommand(sublime_plugin.WindowCommand):
         # Detect folders of open views
         dirs += [os.path.dirname(view.file_name()) for view in self.window.views() if view and view.file_name()]
 
+        # preserve order of folders, from
+        # http://stackoverflow.com/questions/480214/how-do-you-remove-duplicates-from-a-list-in-python-whilst-preserving-order
+        def customSet(seq):
+            seen = set()
+            seen_add = seen.add
+            return [ x for x in seq if not (x in seen or seen_add(x))]
+
         # Check for git folder
-        for dir_path in list(set(dirs)):
+        for dir_path in list(customSet(dirs)):
 
             # search for git folder
             while dir_path:
