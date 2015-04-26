@@ -6,6 +6,7 @@ Clients. Supported viewer at the moment:
 - GitX
 - Gitk
 - GitExtensions
+- Gitg
 
 If you would like to see more, just fork the repository and add your favourite
 client and sent a pull request back to me.
