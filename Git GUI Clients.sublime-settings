@@ -14,5 +14,8 @@
   ],
   "gitg": [
     "/usr/bin/gitg"
+  ],
+  "sourcetree": [
+    "/usr/local/bin/stree"
   ]
 }

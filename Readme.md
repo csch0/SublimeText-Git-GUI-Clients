@@ -7,6 +7,7 @@ Clients. Supported viewer at the moment:
 - Gitk
 - GitExtensions
 - Gitg
+- SourceTree (OS X)
 
 If you would like to see more, just fork the repository and add your favourite
 client and sent a pull request back to me.

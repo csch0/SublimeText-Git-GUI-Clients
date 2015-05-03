@@ -14,5 +14,9 @@
 	{ 
 		"caption": "Git GUI Clients: Gitg", 
 		"command": "ggc_open", "args": {"cmd": "gitg"}
+	},
+	{ 
+		"caption": "Git GUI Clients: SourceTree", 
+		"command": "ggc_open", "args": {"cmd": "sourcetree"}
 	}
 ]
