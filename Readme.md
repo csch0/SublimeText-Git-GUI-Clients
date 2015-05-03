@@ -42,7 +42,7 @@ Support this project via [gittip][] or [paypal][].
 
 All files in this package is licensed under the MIT license.
 
-Copyright (c) 2013 Chris <chris@latexing.com>
+Copyright (c) 2013-2015 Chris <chris@latexing.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
