@@ -11,7 +11,7 @@
         [
           {
             "caption": "Git GUI Clients",
-            "mnemonic": "g",
+            "mnemonic": "G",
             "children":
             [              
               {
